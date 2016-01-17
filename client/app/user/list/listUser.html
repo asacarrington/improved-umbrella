@@ -1,0 +1,19 @@
+<div>
+    this is a table
+    <table>
+        <tr *ngFor="#user of users" >
+            <!-- [[[[ square bracks move from component into DOM]]]]-->
+            <td>
+                {{user?.id}}
+            </td>
+            <td>{{user?.title}}</td>
+            <td>{{user?.firstname}}</td>
+            <td>{{user?.surname}}</td>
+
+        </tr>
+    </table>
+</div>
+
+<user-display *ngFor="#user of users"
+               [user]="user">
+</user-display>

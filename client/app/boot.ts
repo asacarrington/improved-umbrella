@@ -1,11 +1,15 @@
 import {bootstrap} from "angular2/platform/browser"
-import {provide} from "angular2/core";
 import {ROUTER_PROVIDERS,
-        LocationStrategy, HashLocationStrategy} from "angular2/router";
+    HashLocationStrategy,
+    LocationStrategy} from "angular2/router"
+import {App} from "./app"
+import {provide, enableProdMode} from "angular2/core"
 import {HTTP_PROVIDERS} from "angular2/http";
 import {UserDirectoryApp} from "./app";
+import {UserService} from "./services/userService";
 
 bootstrap(UserDirectoryApp,
     [ROUTER_PROVIDERS,
-    HTTP_PROVIDERS,
-    provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+        HTTP_PROVIDERS,
+        UserService,
+        provide(LocationStrategy, {useClass: HashLocationStrategy})]);
